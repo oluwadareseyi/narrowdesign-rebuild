@@ -1,0 +1,15 @@
+@import "utils/breakpoints";
+@import "utils/functions";
+@import "utils/mixins";
+
+@import "core/reset";
+@import "core/variables";
+@import "core/fonts";
+@import "core/globals";
+
+@import "shared/fonts";
+@import "shared/links";
+
+@import "components/nav";
+
+@import "pages/home";
