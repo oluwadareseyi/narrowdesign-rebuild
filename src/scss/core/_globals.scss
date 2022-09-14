@@ -1,8 +1,14 @@
 html {
   font-size: calc(100vw / 1440 * 10);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 // resets
 body {
   font-family: "Suisse", sans-serif;
+  background: $black;
+  color: $white;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }

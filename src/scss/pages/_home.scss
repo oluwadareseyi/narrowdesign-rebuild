@@ -1,2 +1,28 @@
 .c-home {
+  .c-spiral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // transition: transform 0.3s ease;
+    will-change: transform;
+    backface-visibility: hidden;
+
+    &__section {
+      position: absolute;
+      transition: 0.2s border-radius ease, background-color 0.2s ease;
+      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+
+      &:not(&--active) {
+        &:hover {
+          border-radius: 8px;
+        }
+      }
+    }
+  }
 }
