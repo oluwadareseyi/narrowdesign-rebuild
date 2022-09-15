@@ -22,7 +22,7 @@ export default class extends Component {
       limit: 1500,
     };
 
-    this.aspectRatio = 0.61723;
+    this.goldenRatio = 0.61723;
     this.widthToTransformOriginRatio = 0.7236;
     this.elementsLength = this.elements.spiralSections.length;
     this.currentSection = 0;
@@ -36,13 +36,13 @@ export default class extends Component {
   }
 
   onResize() {
-    this.width = Math.floor(window.innerWidth * this.aspectRatio);
+    this.width = Math.floor(window.innerWidth * this.goldenRatio);
     this.height = this.width;
     this.originX = Math.floor(
       window.innerWidth * this.widthToTransformOriginRatio
     );
     this.originY = Math.floor(
-      window.innerWidth * this.aspectRatio * this.widthToTransformOriginRatio
+      window.innerWidth * this.goldenRatio * this.widthToTransformOriginRatio
     );
 
     this.initSpiral();
@@ -61,7 +61,7 @@ export default class extends Component {
   scrollElement() {
     const { spiralSections } = this.elements;
 
-    const scale = Math.pow(this.aspectRatio, this.rotation / 90);
+    const scale = Math.pow(this.goldenRatio, this.rotation / 90);
 
     this.element.style.transform = `rotate(${this.rotation}deg) scale(${scale})`;
 
@@ -83,7 +83,7 @@ export default class extends Component {
     });
   }
 
-  animateScroll(currentRotation) {
+  snapScroll(currentRotation) {
     this.scroll.target = currentRotation;
   }
 
@@ -91,7 +91,7 @@ export default class extends Component {
     clearTimeout(this.scrollTimeout);
 
     this.scrollTimeout = setTimeout(() => {
-      this.animateScroll(this.currentSection * -90);
+      this.snapScroll(this.currentSection * -90);
     }, 200);
   }
 
@@ -101,12 +101,11 @@ export default class extends Component {
 
     spiralSections.forEach((section, index) => {
       const rotation = Math.floor(90 * index);
-      const scale = Math.pow(this.aspectRatio, index);
+      const scale = Math.pow(this.goldenRatio, index);
 
       section.style.width = `${this.width}px`;
       section.style.height = `${this.height}px`;
       section.style.transformOrigin = `${this.originX}px ${this.originY}px`;
-
       section.style.transform = `rotate(${rotation}deg) scale(${scale})`;
 
       section.textContent = `This is section ${index + 1}`;
