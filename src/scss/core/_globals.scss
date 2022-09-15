@@ -2,13 +2,13 @@ html {
   font-size: calc(100vw / 1440 * 10);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
 }
 
 // resets
 body {
-  font-family: "Suisse", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Droid Sans",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: $black;
   color: $white;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }

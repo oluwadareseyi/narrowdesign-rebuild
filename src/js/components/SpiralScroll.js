@@ -55,8 +55,6 @@ export default class extends Component {
 
     this.startTimeout();
     // this.destroy();
-
-    event.preventDefault();
   }
 
   scrollElement() {

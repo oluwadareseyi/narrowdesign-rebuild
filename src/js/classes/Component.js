@@ -60,7 +60,7 @@ export default class Component {
 
   addEventListeners() {
     // window.addEventListener("scroll", this.onScroll, { passive: true });
-    window.addEventListener("wheel", this.onScroll, { passive: false });
+    window.addEventListener("wheel", this.onScroll, { passive: true });
 
     window.addEventListener(
       "resize",
