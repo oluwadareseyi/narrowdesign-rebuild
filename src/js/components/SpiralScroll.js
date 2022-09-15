@@ -68,11 +68,12 @@ export default class extends Component {
 
     this.currentSection = Math.floor((this.rotation - 30) / -90);
 
-    spiralSections.forEach((section) => {
-      section.style.backgroundColor = `rgb(
+    spiralSections.forEach((section, index) => {
+      section.style.backgroundColor = `rgba(
         ${50 * (this.currentSection + 1)},
         ${30 * (this.currentSection + 1)},
-        160
+        160,
+        ${1 - index / this.elementsLength}
         )`;
     });
   }
@@ -103,7 +104,6 @@ export default class extends Component {
       section.style.height = `${this.height}px`;
       section.style.transformOrigin = `${this.originX}px ${this.originY}px`;
 
-      section.style.opacity = 1 - index / this.elementsLength;
       section.style.transform = `rotate(${rotation}deg) scale(${scale})`;
 
       section.textContent = `This is section ${index + 1}`;
@@ -113,8 +113,6 @@ export default class extends Component {
   update() {
     // this.scroll.target = clamp(0, this.scroll.limit, this.scroll.target);
     super.update();
-
-    console.log("update");
 
     this.scroll.current = lerp(
       this.scroll.current,
