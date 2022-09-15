@@ -27,6 +27,7 @@ export default class extends Component {
     this.elementsLength = this.elements.spiralSections.length;
     this.currentSection = 0;
     this.scrollTimeout;
+    this.activeClass = "c-spiral__section--active";
 
     this.onResize();
     this.update();
@@ -67,6 +68,12 @@ export default class extends Component {
     this.currentSection = Math.floor((this.rotation - 30) / -90);
 
     spiralSections.forEach((section, index) => {
+      if (index === this.currentSection) {
+        section.classList.add(this.activeClass);
+      } else {
+        section.classList.remove(this.activeClass);
+      }
+
       section.style.backgroundColor = `rgba(
         ${50 * (this.currentSection + 1)},
         ${30 * (this.currentSection + 1)},
