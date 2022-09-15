@@ -85,8 +85,6 @@ export default class extends Component {
 
   animateScroll(currentRotation) {
     this.scroll.target = currentRotation;
-
-    this.scrollElement();
   }
 
   startTimeout() {
